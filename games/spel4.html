@@ -54,6 +54,14 @@
       const START_POINT_TOLERANCE = 25;
       const INITIAL_LIVES = 3;
       const POINTS_PER_FORCE = 25; // 4 krachten * 25 = 100 punten totaal
+
+      function finishGame(points) {
+        window.parent.postMessage({
+          type: 'GAME_SCORE_UPDATE',
+          gameId: 1, // Het nummer van het huidige spel
+          score: points
+        }, '*');
+      }
       
       const FORCE_DEFINITIONS = {
         [ForceType.Gravity]: {
